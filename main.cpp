@@ -1,29 +1,13 @@
 #include <iostream>
-#include "Player.h"
+#include "SoloMode.h"
 
 using namespace std;
 
 int main(){
-    Player player1("Mylena");
+    SoloMode solo;
 
-    cout << "Player: " << player1.getName() << endl;
-    cout << "Score: " << player1.getScore() << endl;
-    cout << "Attempts: " << player1.getAttemptsLeft() << endl;
-    
-    player1.updateScore(10);
-    player1.decreaseAttempts();
-
-    cout << endl;
-    cout << "After playing: " << endl;
-    cout << "Score: " << player1.getScore() << endl;
-    cout << "Attempts: " << player1.getAttemptsLeft() << endl;
-
-    player1.resetPlayer();
-
-    cout << endl;
-    cout << "After reset: " << endl;
-    cout << "Score: " << player1.getScore() << endl;
-    cout << "Attempts: " << player1.getAttemptsLeft() << endl;
+    cout << "Mode: " << solo.getModeName() << endl;
+    cout << "Current player: " << solo.switchPlayer(0) << endl;
 
     return 0;
 }
