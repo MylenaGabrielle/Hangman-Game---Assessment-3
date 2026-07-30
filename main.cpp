@@ -1,14 +1,15 @@
 #include <iostream>
-#include "TwoPlayerMode.h"
+#include "WordBank.h"
 
 using namespace std;
 
 int main(){
-    TwoPlayerMode mode;
+    WordBank wordBank;
 
-    cout << "Mode: " << mode.getModeName() << endl;
-    cout << "Current player after switch from 0: " << mode.switchPlayer(0) << endl;
-    cout << "Current player after switch from 1: " << mode.switchPlayer(1) << endl;
+    cout << "Fruits: " << wordBank.isValidTopic("Fruits") << endl;
+    cout << "Countries: " << wordBank.isValidTopic("Countries") << endl;
+    cout << "Colours: " << wordBank.isValidTopic("Colours") << endl;
+    cout << "Animals: " << wordBank.isValidTopic("Animals") << endl;
 
     return 0;
 }
