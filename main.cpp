@@ -6,10 +6,9 @@ using namespace std;
 int main(){
     WordBank wordBank;
 
-    cout << "Fruits: " << wordBank.isValidTopic("Fruits") << endl;
-    cout << "Countries: " << wordBank.isValidTopic("Countries") << endl;
-    cout << "Colours: " << wordBank.isValidTopic("Colours") << endl;
-    cout << "Animals: " << wordBank.isValidTopic("Animals") << endl;
+    cout << "Random fruit: " << wordBank.getRandomWord("Fruits") << endl;
+    cout << "Random country: " << wordBank.getRandomWord("Countries") << endl;
+    cout << "Random colour: " << wordBank.getRandomWord("Colours") << endl;
 
     return 0;
 }
