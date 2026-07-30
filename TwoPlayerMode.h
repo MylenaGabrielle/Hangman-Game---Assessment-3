@@ -4,7 +4,8 @@
 #include "GameMode.h"
 
 class TwoPlayerMode : public GameMode{
-public:
+    
+    public:
     string getModeName() override;
     int switchPlayer(int currentPlayer) override;
 };

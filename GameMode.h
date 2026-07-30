@@ -5,7 +5,7 @@
 using namespace std;
 
 class GameMode{
-    public:
+public:
     virtual string getModeName() = 0;
     virtual int switchPlayer(int currentPlayer) = 0;
     virtual ~GameMode() {};
