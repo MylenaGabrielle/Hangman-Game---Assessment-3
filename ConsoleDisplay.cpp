@@ -98,9 +98,32 @@ void ConsoleDisplay::showTopicMenu(){
     cout << "                [2] Countries" << endl;
     cout << "                [3] Colours" << endl;
     cout << "                [4] Back" << endl;
-    
+
     cout << endl;
     cout << "--------------------------------------------------------------" << endl;
     cout << endl;
     cout << "Enter your choice [1-4]: ";
+}
+
+void ConsoleDisplay::showLeaveConfirmation(){
+    cout << "==============================================================" << endl;
+    cout << endl;
+    cout << "                        HANGMAN" << endl;
+    cout << endl;
+    cout << "==============================================================" << endl;
+    cout << endl;
+    cout << "            ARE YOU SURE YOU WANT TO LEAVE?" << endl;
+    cout << endl;
+    cout << "      Your current progress will be lost." << endl;
+
+    cout << endl;
+    cout << "          Return to the Main Menu?" << endl;
+    cout << endl;
+    cout << "                [1] Yes" << endl;
+    cout << "                [2] No" << endl;
+    
+    cout << endl;
+    cout << "--------------------------------------------------------------" << endl;
+    cout << endl;
+    cout << "Enter your choice [1-2]: ";
 }
