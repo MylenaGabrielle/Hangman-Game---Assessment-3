@@ -6,8 +6,7 @@ using namespace std;
 
 int main(){
     HangmanGame game;
-
-    cout << "HangmanGame object created successfully!" << endl;
+    game.startGame();
 
     return 0;
 }
