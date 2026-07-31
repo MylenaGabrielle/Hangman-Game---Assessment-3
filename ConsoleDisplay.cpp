@@ -21,7 +21,7 @@ void ConsoleDisplay::showMainMenu()
     cout << "                [1] Play Hangman" << endl;
     cout << "                [2] How to Play" << endl;
     cout << "                [3] Exit" << endl;
-    
+
     cout << endl;
     cout << "--------------------------------------------------------------" << endl;
     cout << endl;
@@ -81,4 +81,26 @@ void ConsoleDisplay::showGameModeMenu(){
     cout << "--------------------------------------------------------------" << endl;
     cout << endl;
     cout << "Enter your choice [1-3]: ";
+}
+
+void ConsoleDisplay::showTopicMenu(){
+    cout << "==============================================================" << endl;
+    cout << endl;
+    cout << "                        HANGMAN" << endl;
+    cout << endl;
+    cout << "==============================================================" << endl;
+    cout << endl;
+    cout << "                    SELECT TOPIC" << endl;
+    cout << endl;
+
+    cout << endl;
+    cout << "                [1] Fruits" << endl;
+    cout << "                [2] Countries" << endl;
+    cout << "                [3] Colours" << endl;
+    cout << "                [4] Back" << endl;
+    
+    cout << endl;
+    cout << "--------------------------------------------------------------" << endl;
+    cout << endl;
+    cout << "Enter your choice [1-4]: ";
 }
