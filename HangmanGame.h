@@ -4,6 +4,8 @@
 #include "WordBank.h"
 #include <string>
 #include <set>
+#include <vector>
+#include "Player.h"
 
 using namespace std;
 
@@ -16,13 +18,15 @@ class HangmanGame{
     string selectedTopic;
 
     GameMode* gameMode;
-    
+
     set<char> guessedLetters;
     int currentPlayerIndex;
     bool gameOver;
 
     ConsoleDisplay display;
     WordBank wordBank;
+
+    vector<Player> players;
 
     public:
     HangmanGame();

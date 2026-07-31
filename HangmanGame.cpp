@@ -14,6 +14,16 @@ HangmanGame::HangmanGame(){
 
 void HangmanGame::startGame(){
     selectGameMode();
+
+    if (gameMode == nullptr){
+        return;
+    }
+
+    setUpPlayers();
+
+    cout << "Number of players: "
+         << players.size()
+         << endl;
 }
 
 void HangmanGame::selectGameMode(){
@@ -47,6 +57,16 @@ void HangmanGame::selectGameMode(){
 }
 
 void HangmanGame::setUpPlayers(){
-    // Will be implemented later
+    players.clear();
+
+    if (gameMode->getModeName() == "Solo"){
+        players.push_back(Player("Player 1"));
+    }
+    else if (gameMode->getModeName() == "Two-Player"){
+        players.push_back(Player("Player 1"));
+        players.push_back(Player("Player 2"));
+    }
+
+    currentPlayerIndex = 0;
 }
 
