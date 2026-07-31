@@ -1,5 +1,7 @@
 #ifndef HANGMANGAME_H
 #define HANGMANGAME_H
+#include "ConsoleDisplay.h"
+#include "WordBank.h"
 #include <string>
 #include <set>
 
@@ -12,13 +14,21 @@ class HangmanGame{
     string secretWord;
     string displayedWord;
     string selectedTopic;
+
     GameMode* gameMode;
+    
     set<char> guessedLetters;
     int currentPlayerIndex;
     bool gameOver;
 
+    ConsoleDisplay display;
+    WordBank wordBank;
+
     public:
     HangmanGame();
+    void startGame();
+    void selectGameMode();
+    void setUpPlayers();
 
 };
 
