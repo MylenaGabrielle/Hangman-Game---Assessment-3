@@ -1,13 +1,13 @@
 #include <iostream>
-#include "ConsoleDisplay.h"
+#include "HangmanGame.h"
 
 using namespace std;
 
 
 int main(){
-    ConsoleDisplay display;
+    HangmanGame game;
 
-    display.showLeaveConfirmation();
+    cout << "HangmanGame object created successfully!" << endl;
 
     return 0;
 }
