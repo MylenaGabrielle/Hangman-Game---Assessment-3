@@ -7,7 +7,7 @@ using namespace std;
 int main(){
     ConsoleDisplay display;
 
-    display.showHowToPlay();
+    display.showGameModeMenu();
 
     return 0;
 }
