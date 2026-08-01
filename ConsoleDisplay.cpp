@@ -1,6 +1,7 @@
 #include "ConsoleDisplay.h"
 #include "HangmanGame.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -126,4 +127,36 @@ void ConsoleDisplay::showLeaveConfirmation(){
     cout << "--------------------------------------------------------------" << endl;
     cout << endl;
     cout << "Enter your choice [1-2]: ";
+}
+
+void ConsoleDisplay::showGameScreen(string playerName,
+                                    string mode,
+                                    string topic,
+                                    string displayedWord,
+                                    int score,
+                                    int attemptsLeft){
+    cout << "==================================================" << endl;
+    cout << "                     HANGMAN" << endl;
+    cout << "==================================================" << endl;
+
+    cout << "Player: " << playerName << endl;
+    cout << "Mode: " << mode << endl;
+    cout << "Topic: " << topic << endl;
+    cout << endl;
+
+    cout << "Word: ";
+
+    for (char letter : displayedWord){
+        cout << letter << " ";
+    }
+
+    cout << endl << endl;
+
+    cout << "Score: " << score << endl;
+    cout << "Attempts Left: " << attemptsLeft << endl;
+    cout << endl;
+
+    cout << "[1] Guess a Letter" << endl;
+    cout << "[2] Guess the Word" << endl;
+    cout << "[3] Leave Game" << endl;
 }

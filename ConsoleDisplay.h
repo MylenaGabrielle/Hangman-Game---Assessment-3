@@ -1,5 +1,8 @@
 #ifndef CONSOLEDISPLAY_H
 #define CONSOLEDISPLAY_H
+#include <string>
+
+using namespace std;
 
 class HangmanGame;
 
@@ -15,6 +18,16 @@ public:
     void showLeaveConfirmation();
     void showWinResult(HangmanGame game);
     void showGameOver(HangmanGame game);
+
+    void showGameScreen(
+        string playerName,
+        string mode,
+        string topic,
+        string displayedWord,
+        int score,
+        int attemptsLeft);
+
+
 };
 
 #endif

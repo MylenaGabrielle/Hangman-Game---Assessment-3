@@ -43,7 +43,14 @@ void HangmanGame::startGame(){
         displayedWord += "_";
 }
 
-    cout << "Displayed word: " << displayedWord << endl;
+    display.showGameScreen(
+    players[0].getName(),
+    gameMode->getModeName(),
+    selectedTopic,
+    displayedWord,
+    players[0].getScore(),
+    players[0].getAttemptsLeft()
+);
 }
 
 void HangmanGame::selectGameMode(){
