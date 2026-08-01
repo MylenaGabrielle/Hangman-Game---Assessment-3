@@ -35,45 +35,58 @@ void HangmanGame::startGame(){
 
     secretWord = wordBank.getRandomWord(selectedTopic);
 
-    displayedWord = "";
-    
-    for (int i = 0; i < secretWord.length(); i++){
-        displayedWord += "_";
+displayedWord = "";
+
+for (int i = 0; i < secretWord.length(); i++)
+{
+    displayedWord += "_";
 }
 
-    display.showGameScreen(
-    players[0].getName(),
-    gameMode->getModeName(),
-    selectedTopic,
-    displayedWord,
-    players[0].getScore(),
-    players[0].getAttemptsLeft()
-);
+bool gameRunning = true;
 
-     int action;
+while (gameRunning)
+{
+    display.showGameScreen(
+        players[currentPlayerIndex].getName(),
+        gameMode->getModeName(),
+        selectedTopic,
+        displayedWord,
+        players[currentPlayerIndex].getScore(),
+        players[currentPlayerIndex].getAttemptsLeft()
+    );
+
+    int action;
 
     cout << endl;
     cout << "Enter your choice [1-3]: ";
-    
-    if (!(cin >> action)){
-    cout << "Input error." << endl;
-    cin.clear();
-    cin.ignore(10000, '\n');
 
-    return;
-}
+    if (!(cin >> action))
+    {
+        cout << "Input error. Please enter a number from 1 to 3." << endl;
 
-     if (action == 1){
-    guessLetter();
-}
-     else if (action == 2){
-    cout << "Guess the word selected." << endl;
-}
-     else if (action == 3){
-    cout << "Leave game selected." << endl;
-}
-     else{
-    cout << "Invalid option." << endl;
+        cin.clear();
+        cin.ignore(10000, '\n');
+
+        continue;
+    }
+
+    if (action == 1)
+    {
+        guessLetter();
+    }
+    else if (action == 2)
+    {
+        cout << "Guess the word selected." << endl;
+    }
+    else if (action == 3)
+    {
+        cout << "Leaving game..." << endl;
+        gameRunning = false;
+    }
+    else
+    {
+        cout << "Invalid option. Please enter a number from 1 to 3." << endl;
+    }
 }
 }
 
@@ -163,6 +176,8 @@ void HangmanGame::guessLetter(){
     if (checkLetterGuess(letter)){
     revealLetter(letter);
 
+    players[currentPlayerIndex].updateScore(10);
+
     cout << "Correct letter!" << endl;
     cout << "Updated word: ";
 
@@ -173,6 +188,8 @@ void HangmanGame::guessLetter(){
     cout << endl;
 }
 else{
+    players[currentPlayerIndex].decreaseAttempts();
+    
     cout << "Wrong letter!" << endl;
 }
 }
