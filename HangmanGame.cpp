@@ -54,6 +54,8 @@ while (gameRunning)
         players[currentPlayerIndex].getScore(),
         players[currentPlayerIndex].getAttemptsLeft()
     );
+    
+    showGuessedLetters();
 
     int action;
 
@@ -78,9 +80,24 @@ while (gameRunning)
         guessCompleteWord();
     }
     else if (action == 3){
-        cout << "Leaving game..." << endl;
+         display.showLeaveConfirmation();
+
+        int leaveChoice;
+         cin >> leaveChoice;
+         
+         if (leaveChoice == 1){
+        cout << "Returning to the Main Menu..." << endl;
         gameRunning = false;
     }
+    else if (leaveChoice == 2){
+         cout << "Returning to the game..." << endl;
+         continue;
+    }
+    else{
+         cout << "Invalid option. Returning to the game..." << endl;
+         continue;
+    }
+}
     else{
         cout << "Invalid option. Please enter a number from 1 to 3." << endl;
         continue;
@@ -206,8 +223,12 @@ void HangmanGame::guessLetter(){
 }
 else{
     players[currentPlayerIndex].decreaseAttempts();
-    
+
     cout << "Wrong letter!" << endl;
+
+    if (gameMode->getModeName() == "Two-Player"){
+        currentPlayerIndex = gameMode->switchPlayer(currentPlayerIndex);
+    }
 }
 }
 
@@ -258,5 +279,20 @@ void HangmanGame::guessCompleteWord(){
         players[currentPlayerIndex].decreaseAttempts();
 
         cout << "Wrong word!" << endl;
+
+        if (gameMode->getModeName() == "Two-Player"
+            && players[currentPlayerIndex].getAttemptsLeft() > 0){
+            currentPlayerIndex = gameMode->switchPlayer(currentPlayerIndex);
+        }
     }
+}
+
+void HangmanGame::showGuessedLetters(){
+    cout << "Guessed Letters: ";
+
+    for (char letter : guessedLetters){
+        cout << letter << " ";
+    }
+
+    cout << endl;
 }

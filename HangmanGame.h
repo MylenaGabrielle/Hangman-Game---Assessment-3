@@ -40,6 +40,7 @@ class HangmanGame{
     bool checkWin();
     bool checkGameOver();
     void guessCompleteWord();
+    void showGuessedLetters();
 
 };
 
