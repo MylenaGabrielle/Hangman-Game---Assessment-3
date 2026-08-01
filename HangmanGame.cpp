@@ -32,6 +32,10 @@ void HangmanGame::startGame(){
 
         break;
     }
+
+    secretWord = wordBank.getRandomWord(selectedTopic);
+    
+    cout << "Secret word: " << secretWord << endl;
 }
 
 void HangmanGame::selectGameMode(){
