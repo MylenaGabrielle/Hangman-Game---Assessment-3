@@ -37,6 +37,9 @@ class HangmanGame{
     void guessLetter();
     bool checkLetterGuess(char letter);
     void revealLetter(char letter);
+    bool checkWin();
+    bool checkGameOver();
+    void guessCompleteWord();
 
 };
 

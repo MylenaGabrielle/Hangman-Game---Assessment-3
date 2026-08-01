@@ -70,23 +70,31 @@ while (gameRunning)
         continue;
     }
 
-    if (action == 1)
-    {
+    if (action == 1){
         guessLetter();
     }
-    else if (action == 2)
-    {
-        cout << "Guess the word selected." << endl;
+
+    else if (action == 2){
+        guessCompleteWord();
     }
-    else if (action == 3)
-    {
+    else if (action == 3){
         cout << "Leaving game..." << endl;
         gameRunning = false;
     }
-    else
-    {
+    else{
         cout << "Invalid option. Please enter a number from 1 to 3." << endl;
+        continue;
     }
+    if (checkWin()){
+            cout << "\nCongratulations! You guessed the word!" << endl;
+            gameRunning = false;
+        }
+        else if (checkGameOver()){
+            cout << "\nGame Over!" << endl;
+            cout << "The word was: " << secretWord << endl;
+            
+            gameRunning = false;
+        }
 }
 }
 
@@ -171,6 +179,15 @@ void HangmanGame::guessLetter(){
     cout << "Enter a letter: ";
     cin >> letter;
 
+    letter = toupper(letter);
+    if (guessedLetters.count(letter) > 0){
+    cout << "This letter has already been guessed." << endl;
+
+    return;
+}
+
+     guessedLetters.insert(letter);
+
     cout << "You guessed: " << letter << endl;
 
     if (checkLetterGuess(letter)){
@@ -210,5 +227,36 @@ void HangmanGame::revealLetter(char letter){
         if (toupper(secretWord[i]) == toupper(letter)){
             displayedWord[i] = toupper(letter);
         }
+    }
+}
+
+bool HangmanGame::checkWin(){
+    return displayedWord == secretWord;
+}
+
+bool HangmanGame::checkGameOver(){
+    return players[currentPlayerIndex].getAttemptsLeft() == 0;
+}
+
+void HangmanGame::guessCompleteWord(){
+    string guessedWord;
+
+    cout << "Enter the complete word: ";
+    cin >> guessedWord;
+
+    for (char& letter : guessedWord){
+        letter = toupper(letter);
+    }
+
+    if (guessedWord == secretWord){
+        players[currentPlayerIndex].updateScore(50);
+        displayedWord = secretWord;
+
+        cout << "Correct word!" << endl;
+    }
+    else{
+        players[currentPlayerIndex].decreaseAttempts();
+
+        cout << "Wrong word!" << endl;
     }
 }
