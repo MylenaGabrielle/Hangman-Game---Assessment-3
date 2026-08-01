@@ -49,6 +49,32 @@ void HangmanGame::startGame(){
     players[0].getScore(),
     players[0].getAttemptsLeft()
 );
+
+     int action;
+
+    cout << endl;
+    cout << "Enter your choice [1-3]: ";
+    
+    if (!(cin >> action)){
+    cout << "Input error." << endl;
+    cin.clear();
+    cin.ignore(10000, '\n');
+
+    return;
+}
+
+     if (action == 1){
+    guessLetter();
+}
+     else if (action == 2){
+    cout << "Guess the word selected." << endl;
+}
+     else if (action == 3){
+    cout << "Leave game selected." << endl;
+}
+     else{
+    cout << "Invalid option." << endl;
+}
 }
 
 void HangmanGame::selectGameMode(){
@@ -124,4 +150,48 @@ void HangmanGame::selectTopic(){
     cout << "Selected topic: "
          << selectedTopic
          << endl;
+}
+
+void HangmanGame::guessLetter(){
+    char letter;
+
+    cout << "Enter a letter: ";
+    cin >> letter;
+
+    cout << "You guessed: " << letter << endl;
+
+    if (checkLetterGuess(letter)){
+    revealLetter(letter);
+
+    cout << "Correct letter!" << endl;
+    cout << "Updated word: ";
+
+    for (char currentCharacter : displayedWord){
+        cout << currentCharacter << " ";
+    }
+
+    cout << endl;
+}
+else{
+    cout << "Wrong letter!" << endl;
+}
+}
+
+bool HangmanGame::checkLetterGuess(char letter){
+    for (char currentLetter : secretWord){
+        if (toupper(currentLetter) == toupper(letter)){
+
+            return true;
+        }
+    }
+
+    return false;
+}
+
+void HangmanGame::revealLetter(char letter){
+    for (int i = 0; i < secretWord.length(); i++){
+        if (toupper(secretWord[i]) == toupper(letter)){
+            displayedWord[i] = toupper(letter);
+        }
+    }
 }
