@@ -16,6 +16,8 @@ public:
     void showCorrectGuess();
     void showIncorrectGuess();
     void showLeaveConfirmation();
+
+    //We are not using these two functions
     void showWinResult(HangmanGame game);
     void showGameOver(HangmanGame game);
 

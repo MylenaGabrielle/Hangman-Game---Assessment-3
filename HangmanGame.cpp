@@ -107,11 +107,19 @@ while (gameRunning)
             gameRunning = false;
         }
         else if (checkGameOver()){
-            cout << "\nGame Over!" << endl;
-            cout << "The word was: " << secretWord << endl;
-            
-            gameRunning = false;
-        }
+             cout << "\nGame Over!" << endl;
+             cout << "The word was: " << secretWord << endl;
+             
+             if (gameMode->getModeName() == "Two-Player"){
+             int winnerIndex = gameMode->switchPlayer(currentPlayerIndex);
+             
+             cout << players[currentPlayerIndex].getName() << " has no attempts left." << endl;
+             
+             cout << "Winner: " << players[winnerIndex].getName() << endl;
+    }
+
+    gameRunning = false;
+}
 }
 }
 
@@ -226,7 +234,8 @@ else{
 
     cout << "Wrong letter!" << endl;
 
-    if (gameMode->getModeName() == "Two-Player"){
+    if (gameMode->getModeName() == "Two-Player"
+        && players[currentPlayerIndex].getAttemptsLeft() > 0){
         currentPlayerIndex = gameMode->switchPlayer(currentPlayerIndex);
     }
 }
@@ -276,15 +285,16 @@ void HangmanGame::guessCompleteWord(){
         cout << "Correct word!" << endl;
     }
     else{
-        players[currentPlayerIndex].decreaseAttempts();
+    players[currentPlayerIndex].decreaseAttempts();
 
-        cout << "Wrong word!" << endl;
+    cout << "Wrong word!" << endl;
 
-        if (gameMode->getModeName() == "Two-Player"
-            && players[currentPlayerIndex].getAttemptsLeft() > 0){
-            currentPlayerIndex = gameMode->switchPlayer(currentPlayerIndex);
-        }
+    if (gameMode->getModeName() == "Two-Player"
+        && players[currentPlayerIndex].getAttemptsLeft() > 0){
+        currentPlayerIndex =
+            gameMode->switchPlayer(currentPlayerIndex);
     }
+}
 }
 
 void HangmanGame::showGuessedLetters(){
@@ -295,4 +305,32 @@ void HangmanGame::showGuessedLetters(){
     }
 
     cout << endl;
+}
+
+void HangmanGame::run(){
+    bool running = true;
+
+    while (running){
+        display.showMainMenu();
+
+        int choice;
+        cin >> choice;
+
+        if (choice == 1){
+            startGame();
+        }
+        else if (choice == 2){
+            display.showHowToPlay();
+
+            int backChoice;
+            cin >> backChoice;
+        }
+        else if (choice == 3){
+            cout << "Exiting game..." << endl;
+            running = false;
+        }
+        else{
+            cout << "Invalid option. Please enter a number from 1 to 3." << endl;
+        }
+    }
 }

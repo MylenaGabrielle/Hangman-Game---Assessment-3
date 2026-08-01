@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
     HangmanGame game;
-    game.startGame();
+    game.run();
 
     return 0;
 }
