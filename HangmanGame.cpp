@@ -21,9 +21,11 @@ void HangmanGame::startGame(){
 
     setUpPlayers();
 
-    cout << "Number of players: "
-         << players.size()
-         << endl;
+    selectTopic();
+    
+    if (selectedTopic == ""){
+        return;
+    }
 }
 
 void HangmanGame::selectGameMode(){
@@ -70,3 +72,33 @@ void HangmanGame::setUpPlayers(){
     currentPlayerIndex = 0;
 }
 
+void HangmanGame::selectTopic(){
+    int option;
+
+    do{
+        display.showTopicMenu();
+        cin >> option;
+
+        if (option == 1){
+            selectedTopic = "Fruits";
+        }
+        else if (option == 2){
+            selectedTopic = "Countries";
+        }
+        else if (option == 3){
+            selectedTopic = "Colours";
+        }
+        else if (option == 4){
+            cout << "Returning to the Game Mode Menu..." << endl;
+            return;
+        }
+        else{
+            cout << "Invalid option. Please enter a number from 1 to 4." << endl;
+        }
+
+    } while (option < 1 || option > 4);
+
+    cout << "Selected topic: "
+         << selectedTopic
+         << endl;
+}

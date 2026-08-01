@@ -33,6 +33,7 @@ class HangmanGame{
     void startGame();
     void selectGameMode();
     void setUpPlayers();
+    void selectTopic();
 
 };
 
