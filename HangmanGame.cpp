@@ -13,18 +13,24 @@ HangmanGame::HangmanGame(){
 }
 
 void HangmanGame::startGame(){
-    selectGameMode();
+    while (true){
+        gameMode = nullptr;
+        selectedTopic = "";
 
-    if (gameMode == nullptr){
-        return;
-    }
+        selectGameMode();
 
-    setUpPlayers();
+        if (gameMode == nullptr){
+            return;
+        }
 
-    selectTopic();
-    
-    if (selectedTopic == ""){
-        return;
+        setUpPlayers();
+        selectTopic();
+
+        if (selectedTopic == ""){
+            continue;
+        }
+
+        break;
     }
 }
 

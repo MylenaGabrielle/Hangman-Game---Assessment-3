@@ -2,5 +2,5 @@
 Final Assessment
 
 
-Terminal ---- g++ main.cpp Player.cpp -o hangman
-Execute ----- ./hangman
+Terminal ---- g++ *.cpp -o hangman
+./hangman
