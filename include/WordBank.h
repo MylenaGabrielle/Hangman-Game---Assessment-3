@@ -7,16 +7,17 @@
 using namespace std;
 
 class WordBank{
-private:
+    private:
     vector<string> colourWords;
     vector<string> countryWords;
     vector<string> fruitWords;
-
-public:
+    
+    public:
+    // Creates and initialises the word categories
     WordBank();
 
+    // Returns a random word from the selected topic
     string getRandomWord(string topic);
-    bool isValidTopic(string topic);
 };
 
 #endif

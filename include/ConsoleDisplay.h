@@ -1,35 +1,36 @@
 #ifndef CONSOLEDISPLAY_H
 #define CONSOLEDISPLAY_H
+
 #include <string>
 
 using namespace std;
 
-class HangmanGame;
-
 class ConsoleDisplay{
-public:
+    public:
+    // Displays the main menu
     void showMainMenu();
+
+    // Displays the game instructions
     void showHowToPlay();
+
+    // Displays the game mode selection menu
     void showGameModeMenu();
+
+    // Displays the topic selection menu
     void showTopicMenu();
-    void showGameStatus(HangmanGame game);
-    void showCorrectGuess();
-    void showIncorrectGuess();
+
+    // Displays the confirmation screen before leaving the game
     void showLeaveConfirmation();
 
-    //We are not using these two functions
-    void showWinResult(HangmanGame game);
-    void showGameOver(HangmanGame game);
-
+    // Displays the current gameplay screen
     void showGameScreen(
         string playerName,
         string mode,
         string topic,
         string displayedWord,
         int score,
-        int attemptsLeft);
-
-
+        int attemptsLeft
+    );
 };
 
 #endif
