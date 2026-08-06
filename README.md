@@ -1,10 +1,28 @@
-# Hangman-Game---Assessment-3
+# Hangman Game
+
+PRG1006 – Programming II
+
+Assessment 3
+
+---
 
 ## Project Overview
 
 This project is a console-based Hangman game developed in C++ using Object-Oriented Programming (OOP) principles.
 
 The game allows players to choose between Solo Mode and Two-Player Mode, select a topic, and guess letters or the complete word while earning points and managing a limited number of attempts.
+
+---
+
+## Gameplay
+
+Players must guess the hidden word by entering individual letters or the complete word.
+
+Correct letter guesses reveal all matching letters and award **10 points**.
+
+Correctly guessing the complete word awards an additional **50 points**.
+
+Each player starts with **4 attempts**. The game ends when the hidden word is completely revealed or when a player has no remaining attempts.
 
 ---
 
@@ -39,6 +57,8 @@ This project demonstrates:
 - Inheritance
 - Polymorphism
 - Abstract Base Class
+- Function Overriding
+- Constructors
 - Dynamic Memory Allocation
 - STL Vector
 - STL Set
@@ -47,15 +67,30 @@ This project demonstrates:
 
 ## Project Structure
 
-```
-ConsoleDisplay
-GameMode
-SoloMode
-TwoPlayerMode
-HangmanGame
-Player
-WordBank
-main.cpp
+```text
+Hangman-Game---Assessment-3
+│
+├── include
+│   ├── ConsoleDisplay.h
+│   ├── GameMode.h
+│   ├── HangmanGame.h
+│   ├── Player.h
+│   ├── SoloMode.h
+│   ├── TwoPlayerMode.h
+│   └── WordBank.h
+│
+├── src
+│   ├── ConsoleDisplay.cpp
+│   ├── HangmanGame.cpp
+│   ├── Player.cpp
+│   ├── SoloMode.cpp
+│   ├── TwoPlayerMode.cpp
+│   ├── WordBank.cpp
+│   └── main.cpp
+│
+├── README.md
+├── LICENSE
+└── .gitignore
 ```
 
 ---
@@ -64,19 +99,25 @@ main.cpp
 
 Compile all source files:
 
-```Bash g++ -Iinclude src/*.cpp -o hangman```
+```bash
+g++ -Iinclude src/*.cpp -o hangman
+```
 
 ---
 
 ## How to Run
 
-Linux / Codespaces
+### Linux / GitHub Codespaces
 
-```bash ./hangman```
+```bash
+./hangman
+```
 
-Windows
+### Windows
 
-```bash hangman.exe```
+```bash
+hangman.exe
+```
 
 ---
 
@@ -84,7 +125,7 @@ Windows
 
 ### Main Menu
 
-```
+```text
 [1] Play Hangman
 [2] How to Play
 [3] Exit
@@ -92,7 +133,7 @@ Windows
 
 ### During the Game
 
-```
+```text
 [1] Guess a Letter
 [2] Guess the Word
 [3] Leave Game
@@ -106,26 +147,27 @@ Windows
 |---------|-------:|
 | Correct Letter | +10 |
 | Correct Word | +50 |
-| Wrong Letter | -1 Attempt |
-| Wrong Word | -1 Attempt |
+| Wrong Letter | Lose 1 attempt |
+| Wrong Word | Lose 1 attempt |
 
 Each player starts with **4 attempts**.
 
 ---
 
+## Requirements
+
+- C++11 or later
+- g++ compiler
+- Linux, GitHub Codespaces or Windows
+
+---
+
 ## Author
 
-**Mylena Gabrielle Silveira da Silva**
+Mylena Gabrielle Silveira da Silva
 
 PRG1006 – Programming II
 
 Assessment 3
 
-Developed using C++
-
----
-
-## Requirements
-
-- C++ compiler (g++)
-- C++11 or later
+Developed in C++
